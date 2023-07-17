@@ -137,7 +137,7 @@ const LandingPage: FunctionComponent = () => {
               Host
             </h4>
             <p className="m-0 text-sm inline-block ">
-              Create and manage an in-person or digital event with ease
+              Create and manage in-person or digital events with ease
             </p>
           </div>
           <div className="w-1/3 text-center flex-col flex items-center">
