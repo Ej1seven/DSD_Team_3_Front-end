@@ -35,6 +35,9 @@ module.exports = {
       smMAX: { min: '0px', max: '767px' },
       // => @media (min-width: 640px and max-width: 767px) { ... }
     },
+    boxShadow: {
+      inner: 'inset 0 0 6px #14213D',
+    },
   },
   plugins: [],
 };
