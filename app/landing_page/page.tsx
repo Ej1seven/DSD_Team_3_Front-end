@@ -127,7 +127,7 @@ const LandingPage: FunctionComponent = () => {
               <div className="absolute w-[100px] h-[100px] bg-[#14213D] rounded-full flex justify-center items-center" />
               <div>
                 <img
-                  className="relative w-[53px] h-[65px] object-cover "
+                  className="relative w-[64px] h-[65px] object-cover "
                   alt=""
                   src="/event-1@2x.png"
                 />
