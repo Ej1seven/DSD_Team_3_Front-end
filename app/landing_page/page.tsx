@@ -45,28 +45,6 @@ const LandingPage: FunctionComponent = () => {
         />
       </nav>
       <div className="w-full flex items-center justify-center mx-auto mt-4">
-        {/* <div className="w-[230px] h-[233.23px]">
-          <h4 className="m-0 text-[inherit] font-bold font-inherit inline-block w-[228.08px] h-[31.35px]">
-            Discover
-          </h4>
-          <p className="m-0 text-sm font-light inline-block w-[230px] h-[75.23px]">
-            Find events for all the things you love
-          </p>
-          <div className="w-[102.36px] flex flex-col items-center justify-center">
-            <div className="w-[102.36px] h-[104.48px] flex flex-col items-center justify-end">
-              <img
-                className="relative w-[102.36px] h-[104.48px]"
-                alt=""
-                src="/vector2.svg"
-              />
-              <img
-                className="relative w-[65px] h-[62px] object-cover mt-[-83px]"
-                alt=""
-                src="/productivity-1@2x.png"
-              />
-            </div>
-          </div>
-        </div> */}
         <section className="flex text-left text-[16px] text-black font-lead-lead-1 w-5/6 max-w-[1100px] lg:px-4 m-auto">
           <div className="w-1/2 h-85 flex flex-col place-content-between">
             <div className="m-0 text-[40px] leading-[67.5px] font-bold font-poppins text-text-title inline-block w-[608px]">
