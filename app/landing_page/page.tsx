@@ -118,7 +118,7 @@ const LandingPage: FunctionComponent = () => {
             <h4 className="m-0 text-[inherit] font-bold font-inherit inline-block">
               Discover
             </h4>
-            <p className="m-0 text-sm font-light inline-block ">
+            <p className="m-0 text-sm inline-block ">
               Find events for all the things you love
             </p>
           </div>
@@ -136,7 +136,7 @@ const LandingPage: FunctionComponent = () => {
             <h4 className="m-0 text-[inherit] font-bold font-inherit inline-block ">
               Host
             </h4>
-            <p className="m-0 text-sm font-light inline-block ">
+            <p className="m-0 text-sm inline-block ">
               Create and manage an in-person or digital event with ease
             </p>
           </div>
@@ -154,7 +154,7 @@ const LandingPage: FunctionComponent = () => {
             <h4 className="m-0 text-[inherit] font-bold font-inherit inline-block">
               Engage
             </h4>
-            <p className="m-0 text-sm font-light inline-block">
+            <p className="m-0 text-sm inline-block">
               Stay connected to your attendees through event updates,
               personalized notifications and email.
             </p>
