@@ -6,7 +6,7 @@ const LandingPage: FunctionComponent = () => {
   return (
     <div className="relative bg-white w-full h-[982px] overflow-hidden text-center text-xl text-base-black font-poppins">
       <img
-        className="absolute top-[246.11px] left-[0px] w-[675.84px] h-[735.89px]"
+        className="absolute bottom-[-10rem] left-[-10rem] min-w-[675.84px] min-h-[735.89px]"
         alt=""
         src="/decore.svg"
       />
@@ -67,9 +67,9 @@ const LandingPage: FunctionComponent = () => {
             </div>
           </div>
         </div> */}
-        <section className="flex text-left text-[16px] text-black font-lead-lead-1 w-4/5 max-w-[1100px] lg:px-4 m-auto">
-          <div className="w-1/2 flex flex-col">
-            <div className="m-0 text-[40px] leading-[47.5px] font-bold font-poppins text-text-title inline-block w-[608px]">
+        <section className="flex text-left text-[16px] text-black font-lead-lead-1 w-5/6 max-w-[1100px] lg:px-4 m-auto">
+          <div className="w-1/2 h-85 flex flex-col place-content-between">
+            <div className="m-0 text-[40px] leading-[67.5px] font-bold font-poppins text-text-title inline-block w-[608px]">
               Experience a premium event hosting platform designed for all
               crowds.
             </div>
@@ -78,16 +78,16 @@ const LandingPage: FunctionComponent = () => {
               management platform that empowers you to effortlessly post your
               events or discover new ones.
             </div>
-            <div className="flex lg:mt-4">
+            <div className="flex lg:mt-4 flex-2">
               <div className="lg:mr-4 ">
-                <button className="cursor-pointer [border:none] p-3 bg-orange rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
+                <button className="bg-[#fca311] cursor-pointer [border:none] p-3 bg-orange rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
                   <div className="relative text-sm leading-[24px] font-poppins text-base-black text-left">
                     Create an Account
                   </div>
                 </button>
               </div>
               <div>
-                <button className="cursor-pointer p-3 bg-[transparent] rounded-lg box-border w-40 flex flex-row items-center justify-center border-[1px] border-solid border-base-black">
+                <button className="border-black cursor-pointer p-3 bg-[transparent] rounded-lg box-border w-40 flex flex-row items-center justify-center border-[1px] border-solid border-base-black">
                   <div className="relative text-sm leading-[24px] font-poppins text-base-black text-left">
                     View Events
                   </div>
@@ -98,7 +98,7 @@ const LandingPage: FunctionComponent = () => {
           <div className="w-1/2 flex justify-end items-center">
             <div className="">
               <img
-                className="w-[25rem]  max-w-[552px] h-80 max-h-[504px] object-cover"
+                className="w-[30rem]  max-w-[552px] h-85 max-h-[504px] object-cover"
                 alt=""
                 src="/group-6@2x.png"
               />
@@ -111,14 +111,21 @@ const LandingPage: FunctionComponent = () => {
           {' '}
           <div className="w-[589.74px] flex flex-col items-start justify-start text-left text-[24px] text-black font-lead-lead-1">
             <h3 className="m-0 relative text-[inherit] leading-[64px] font-extrabold font-inherit inline-block w-[574px] h-[109px] shrink-0">{`Build a larger crowd with {{Company Name}}`}</h3>
-            <p className="m-0 relative text-lg leading-[32px] inline-block w-[589.74px] mt-[-81px]">
+            <p className="m-0 relative text-[inherit] text-sm leading-[32px] inline-block w-[589.74px] mt-[-81px]">
               <span className="block">&nbsp;</span>
-              <span className="block">{`Promoting your event can present challenges, as traditional methods such as distributing flyers or leveraging social media alone may not yield the desired results. However, with {{Company Name}}, you gain the ability to effectively expand your reach to a wider audience, ensuring a remarkable and unforgettable experience for all attendees.`}</span>
+              <span className="block">
+                Promoting your event can present challenges, as traditional
+                methods such as distributing flyers or leveraging social media
+                alone may not yield the desired results. However, with Company
+                Name, you gain the ability to effectively expand your reach to a
+                wider audience, ensuring a remarkable and unforgettable
+                experience for all attendees.
+              </span>
               <span className="block">&nbsp;</span>
             </p>
           </div>
         </div>
-        <div className="w-1/2 flex text-black">
+        <div className="w-1/2 flex text-black ">
           <div className="w-1/3 text-center flex-col flex items-center">
             <div className="w-[103.77px] h-[104.48px] overflow-hidden flex flex-col box-border items-center justify-center">
               <div className="absolute w-[100px] h-[100px] bg-[#14213D] rounded-full flex justify-center items-center" />
