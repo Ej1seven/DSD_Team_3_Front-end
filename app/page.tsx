@@ -1,7 +1,7 @@
-"use client"
+'use client';
 
-import Link from "next/link"
-import Navbar from "./components/Navbar"
+import Link from 'next/link';
+import Navbar from './components/Navbar';
 
 export default function Home() {
   return (
@@ -28,7 +28,7 @@ export default function Home() {
               <div className="lg:mr-4 ">
                 <button className="hover:shadow-inner bg-[#fca311] cursor-pointer [border:none] p-3 bg-orange rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
                   <Link
-                    href={"/Auth"}
+                    href={'/Auth'}
                     className="relative text-sm leading-[24px] font-poppins text-base-black text-left"
                   >
                     Create an Account
@@ -57,7 +57,7 @@ export default function Home() {
       </div>
       <section className="w-full  max-w-[1200px] mx-auto px-4 flex mt-4">
         <div className="w-1/2">
-          {" "}
+          {' '}
           <div className="w-[589.74px] flex flex-col items-start justify-start text-left text-[24px] text-black font-lead-lead-1">
             <h3 className="m-0 relative text-[inherit] leading-[64px] font-extrabold font-inherit inline-block w-[574px] h-[109px] shrink-0">{`Build a larger crowd with {{Company Name}}`}</h3>
             <p className="m-0 relative text-[inherit] text-sm leading-[32px] inline-block w-[589.74px] mt-[-81px]">
@@ -133,5 +133,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }
