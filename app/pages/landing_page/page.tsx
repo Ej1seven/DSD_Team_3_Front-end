@@ -24,7 +24,7 @@ const LandingPage: FunctionComponent = () => {
             </div>
             <div className="flex lg:mt-4 flex-2">
               <div className="lg:mr-4 ">
-                <button className="hover:shadow-inner bg-[#fca311] cursor-pointer [border:none] p-3 bg-orange rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
+                <button className="hover:shadow-inner bg-[#fca311] cursor-pointer [border:none] p-3 rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
                   <div className="relative text-sm leading-[24px] font-poppins text-base-black text-left">
                     Create an Account
                   </div>
