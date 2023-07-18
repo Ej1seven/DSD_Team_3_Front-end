@@ -1,10 +1,10 @@
-import Link from "next/link"
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="lg:flex lg:justify-between h-16 text-[#14213D] lg:w-3/4 mx-auto">
+    <nav className="lg:flex lg:justify-between h-20 text-[#14213D] lg:w-3/4 mx-auto">
       <Link
-        href={"/Auth"}
+        href={'/Auth'}
         className="hover:underline decoration-[#fca311] underline-offset-4 decoration-2 cursor-pointer [border:none] p-4 bg-[transparent] text-sm font-semibold font-poppins  text-center inline-block"
       >
         Login
@@ -39,7 +39,7 @@ const Navbar = () => {
         src="/logodesign-1@2x.png"
       />
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
