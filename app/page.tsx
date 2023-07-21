@@ -6,7 +6,7 @@ import LandingPage from './pages/landing_page/page';
 
 export default function Home() {
   return (
-    <div className="relative bg-white w-full h-screen overflow-hidden text-center text-xl text-base-black font-poppins">
+    <div className="relative bg-white w-full h-screen md:overflow-hidden text-center text-xl text-base-black font-poppins">
       <Navbar />
       <LandingPage />
     </div>

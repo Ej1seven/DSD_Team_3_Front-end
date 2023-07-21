@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 
 const LandingPage: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full h-screen overflow-hidden text-center text-xl text-base-black font-poppins">
+    <div className="relative bg-white w-full h-screen text-center text-xl text-base-black font-poppins no-scrollbar overflow-y-auto">
       <img
         className="absolute bottom-[-10rem] left-[-10rem] max-w-[500px] lg:max-w-full md:min-w-[675.84px] max-h-[560px] lg:max-h-full md:min-h-[735.89px] object-cover h-screen"
         alt=""
@@ -13,17 +13,17 @@ const LandingPage: FunctionComponent = () => {
       <div className="w-full h-[982px] flex flex-col lg:items-center mt-4 tall:mt-0 tall:justify-center">
         <section className="flex flex-col items-center md:items-stretch md:flex-row mx-auto lg:mx-0 text-left text-[16px] text-black font-lead-lead-1 w-full md:justify-between lg:max-w-[1100px] md:px-3 lg:px-4 xl:px-2">
           <div className="md:w-1/2 h-85 flex flex-col lg:mx-0 place-content-between md:pr-6 lg:pr-2">
-            <div className="m-0 md:text-[28px] lg:text-[40px] leading-[47.5px] lg:leading-[67.5px] font-bold font-poppins text-text-title inline-block max-w-[608px]">
+            <div className="m-0 text-[40px] text-center md:text-left md:text-[28px] lg:text-[40px] leading-[47.5px] lg:leading-[67.5px] font-bold font-poppins text-text-title inline-block max-w-[608px]">
               Experience a premium event hosting platform designed for all
               crowds.
             </div>
-            <div className="m-0 text-[inherit] tracking-[0.05em] pr-4 leading-[28px] font-normal font-inherit inline-block max-w-[448px] h-28 z-10">
+            <div className="md:m-0 text-[inherit] tracking-[0.05em] pr-4 leading-[28px] font-normal font-inherit inline-block max-w-[448px] h-28 z-10 mx-auto my-4 md:my-0">
               Hosting events has never been easier. Company Name is a event
               management platform that empowers you to effortlessly post your
               events or discover new ones.
             </div>
-            <div className="flex mt-4 flex-2 w-full">
-              <div className="md:mr-2 lg:mr-4 ">
+            <div className="flex mt-4 flex-2 w-full justify-center md:justify-start mb-4 md:mb-0">
+              <div className="mr-4 md:mr-2 lg:mr-4 ">
                 <button className="hover:shadow-inner bg-[#fca311] cursor-pointer [border:none] p-3 rounded-lg shadow-[0px_0px_64px_rgba(20,_33,_61,_0.3)] w-40 flex flex-row box-border items-center justify-center">
                   <div className="relative text-sm leading-[24px] font-poppins text-base-black text-left">
                     Create an Account
@@ -49,12 +49,12 @@ const LandingPage: FunctionComponent = () => {
             </div>
           </div>
         </section>
-        <section className="min-h-[225px] w-full  max-w-[1200px] mx-auto px-4 flex mt-4">
-          <div className="w-1/2">
+        <section className="min-h-[225px] w-full  max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row mt-4">
+          <div className="w-full md:w-1/2">
             {' '}
             <div className="flex flex-col items-start justify-start text-left text-[24px] text-black font-lead-lead-1 mt-4 pr-4">
-              <h3 className="m-0 relative text-[inherit] font-extrabold font-inherit">{`Build a larger crowd with {{Company Name}}`}</h3>
-              <p className="mt-4 relative text-[inherit] text-sm leading-7">
+              <h3 className="md:m-0 relative text-[inherit] font-extrabold font-inherit mx-auto">{`Build a larger crowd with {{Company Name}}`}</h3>
+              <p className="mt-4 relative text-[inherit] text-sm leading-7 px-4 md:px-0">
                 Promoting your event can present challenges, as traditional
                 methods such as distributing flyers or leveraging social media
                 alone may not yield the desired results. However, with Company
@@ -64,7 +64,7 @@ const LandingPage: FunctionComponent = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1 xl:w-1/2 flex text-black ">
+          <div className="flex-1 xl:w-1/2 flex text-black mt-4 md:mt-0 ">
             <div className="h-full w-1/3 text-center flex-col flex items-center">
               <div className="w-[103.77px] h-[104.48px] overflow-hidden flex flex-col box-border items-center justify-center">
                 <div className="absolute w-[100px] h-[100px] bg-[#14213D] rounded-full flex justify-center items-center" />
