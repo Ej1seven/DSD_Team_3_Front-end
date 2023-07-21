@@ -24,6 +24,10 @@ module.exports = {
 
       lg: '1024px',
       // => @media (min-width: 1024px) { ... }
+      tall: { raw: '(min-height: 930px)' },
+      // => @media (min-height: 930px) { ... }
+      lg_1: '1175px',
+      // => @media (min-width: 1024px) { ... }
 
       xl: '1280px',
       // => @media (min-width: 1280px) { ... }
