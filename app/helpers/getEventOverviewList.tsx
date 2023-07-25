@@ -1,3 +1,5 @@
+import {useGlobalContext} from "../context/store";
+
 export default async function getEventOverviewList(
   events: any,
   eventCreations: any,
@@ -13,12 +15,12 @@ export default async function getEventOverviewList(
       (venue: any) => venue.venue_id === eventCreations[i].venue_id
     );
     let eventOverview: any = {
-      hostName: '',
-      dateOf: '',
-      timeOf: '',
-      venueName: '',
-      capacity: '',
-      address: '',
+      hostName: "",
+      dateOf: "",
+      timeOf: "",
+      venueName: "",
+      capacity: "",
+      address: "",
     };
     eventOverview.hostName = event[0].name;
     eventOverview.dateOf = event[0].dateOf;
