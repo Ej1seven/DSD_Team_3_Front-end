@@ -9,8 +9,12 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import Paper, { PaperProps } from '@mui/material/Paper';
 import { fetchEventData } from '../api/services/Event';
+import format from 'date-fns/format';
+import getEventOverviewList from '../helpers/getEventOverviewList';
+import { useState } from 'react';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
   color: theme.palette.getContrastText('#14213D'),
@@ -30,10 +34,26 @@ const EventListItem = styled(ListItem)<ListItemProps>(({ theme }) => ({
     backgroundColor: '#fff !important',
   },
   marginBottom: '6px',
+  height: '130px',
+  width: '600px',
 }));
 
-const EventList = ({ events }: any) => {
-  console.log(events);
+const EventDateContainer = styled(Paper)<PaperProps>(({ theme }) => ({
+  boxShadow:
+    '0px 3px 1px -2px rgba(252, 163, 17, 0.3), 0px 2px 2px 0px rgba(252, 163, 17, 0.24), 0px 1px 5px 0px rgba(252, 163, 17, 0.22); !important',
+}));
+
+const EventList = ({ events, eventCreations, venues }: any) => {
+  const [eventOverview, setEventOverview] = useState([]);
+  async function getList() {
+    let eventOverviewList = await getEventOverviewList(
+      events,
+      eventCreations,
+      venues
+    );
+    setEventOverview(eventOverviewList);
+  }
+  getList();
   return (
     <div className="flex flex-col gl:flex-row gl:gap-10">
       <div className="flex-1">
@@ -48,90 +68,45 @@ const EventList = ({ events }: any) => {
       <div>
         <div className="mb-16">
           <div className="w-full">
-            {' '}
-            {/* <List
-              sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-            > */}
-            {events?.map((event: any) => {
+            {eventOverview?.map((eventOverviewItem: any) => {
               return (
                 <EventListItem
                   alignItems="flex-start"
                   className="h-[130px] w-[600px]"
                 >
-                  <Paper elevation={3} className="h-[60px] w-[60px]">
-                    {event.dateOf}
-                  </Paper>
+                  <EventDateContainer
+                    elevation={3}
+                    className="h-[80px] w-[80px]"
+                  >
+                    <div className="flex flex-col items-center justify-center h-full w-full">
+                      <div>
+                        {' '}
+                        {format(new Date(eventOverviewItem.dateOf), 'MMM')}
+                      </div>
+                      <div className="flex-1 text-3xl font-bold">
+                        {' '}
+                        {format(new Date(eventOverviewItem.dateOf), 'do')}
+                      </div>
+                    </div>
+                  </EventDateContainer>
+                  <div className="flex flex-col pl-4">
+                    <div>
+                      <span>
+                        {' '}
+                        {`${format(new Date(eventOverviewItem.dateOf), 'iii')}`}
+                      </span>
+                      <FiberManualRecordIcon className="text-[8px] mx-2" />
+                      <span>{`${eventOverviewItem.timeOf}`}</span>
+                    </div>
+                    <div className="font-bold text-lg">
+                      {eventOverviewItem.venueName}
+                    </div>
+                    <div>{eventOverviewItem.address}</div>
+                    <div className="text-sm pt-4">{`Capacity ${eventOverviewItem.capacity}`}</div>
+                  </div>
                 </EventListItem>
               );
             })}
-            {/* <EventListItem
-                alignItems="flex-start"
-                className="h-[130px] w-[600px]"
-              >
-                <Paper elevation={3} className="h-[60px] w-[60px]">
-                  July 27
-                </Paper>
-                <ListItemText
-                  primary="Brunch this weekend?"
-                  secondary={
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component="span"
-                      variant="body2"
-                      color="text.primary"
-                    >
-                      Ali Connors
-                    </Typography>
-                  }
-                />
-              </EventListItem>
-              <Divider variant="inset" component="li" />
-              <EventListItem
-                alignItems="flex-start"
-                className="h-[130px] w-[600px]"
-              >
-                <ListItemAvatar>
-                  <Paper elevation={3} className="h-[60px] w-[60px]">
-                    July 27
-                  </Paper>
-                </ListItemAvatar>
-                <ListItemText
-                  primary="Summer BBQ"
-                  secondary={
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component="span"
-                      variant="body2"
-                      color="text.primary"
-                    >
-                      to Scott, Alex, Jennifer
-                    </Typography>
-                  }
-                />
-              </EventListItem>
-              <Divider variant="inset" component="li" />
-              <EventListItem
-                alignItems="flex-start"
-                className="h-[130px] w-[600px]"
-              >
-                <Paper elevation={3} className="h-[60px] w-[60px]">
-                  July 27
-                </Paper>
-                <ListItemText
-                  primary="Oui Oui"
-                  secondary={
-                    <Typography
-                      sx={{ display: 'inline' }}
-                      component="span"
-                      variant="body2"
-                      color="text.primary"
-                    >
-                      Sandra Adams
-                    </Typography>
-                  }
-                />
-              </EventListItem> */}
-            {/* </List> */}
           </div>
         </div>
       </div>

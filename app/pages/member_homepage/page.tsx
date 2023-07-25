@@ -1,9 +1,16 @@
-import { fetchEventData } from '@/app/api/services/Event';
+import {
+  fetchEventCreationData,
+  fetchEventData,
+} from '@/app/api/services/Event';
+import { fetchVenueData } from '@/app/api/services/Venue';
 import EventList from '@/app/components/EventList';
 import Navbar from '@/app/components/Navbar';
 
 export default async function MemberHomepage({ params }: any) {
   const events = await fetchEventData();
+  const eventCreations = await fetchEventCreationData();
+  const venues = await fetchVenueData();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
@@ -16,7 +23,11 @@ export default async function MemberHomepage({ params }: any) {
                   Erik Hunter
                 </h1>
               </div>
-              <EventList events={events} />
+              <EventList
+                events={events}
+                eventCreations={eventCreations}
+                venues={venues}
+              />
             </div>
           </div>
         </div>
