@@ -13,8 +13,10 @@ import Paper, { PaperProps } from '@mui/material/Paper';
 import { fetchEventData } from '../api/services/Event';
 import format from 'date-fns/format';
 import getEventOverviewList from '../helpers/getEventOverviewList';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import ComponentPagination from '../helpers/componentPagination';
+import Pagination from '@mui/material/Pagination';
 
 const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
   color: theme.palette.getContrastText('#14213D'),
@@ -44,16 +46,50 @@ const EventDateContainer = styled(Paper)<PaperProps>(({ theme }) => ({
 }));
 
 const EventList = ({ events, eventCreations, venues }: any) => {
+  const pageSize: any = 10;
+  const [pagination, setPagination] = useState({
+    count: 0,
+    from: 0,
+    to: pageSize,
+  });
   const [eventOverview, setEventOverview] = useState([]);
-  async function getList() {
-    let eventOverviewList = await getEventOverviewList(
-      events,
-      eventCreations,
-      venues
-    );
-    setEventOverview(eventOverviewList);
-  }
-  getList();
+  const handlePageChange = (event: any, page: any) => {
+    const from = (page - 1) * pageSize;
+    const to = (page - 1) * pageSize + pageSize;
+    setPagination({ ...pagination, from: from, to: to });
+  };
+  const service = {
+    getData: ({ from, to }: any) => {
+      return new Promise(async (resolve, reject) => {
+        let eventOverviewList: any = await getEventOverviewList(
+          events,
+          eventCreations,
+          venues
+        );
+        const data = eventOverviewList.slice(from, to);
+
+        resolve({
+          count: eventOverviewList.length,
+          data: data,
+        });
+      });
+    },
+  };
+
+  useEffect(() => {
+    service
+      .getData({ from: pagination.from, to: pagination.to })
+      .then((response: any) => {
+        setPagination({ ...pagination, count: response.count });
+
+        setEventOverview(response.data);
+      });
+  }, [pagination.from, pagination.to]);
+
+  useEffect(() => {
+    setPagination({ ...pagination, count: eventOverview.length });
+  }, [pagination.from, pagination.to]);
+
   return (
     <div className="flex flex-col gl:flex-row gl:gap-10">
       <div className="flex-1">
@@ -108,6 +144,10 @@ const EventList = ({ events, eventCreations, venues }: any) => {
               );
             })}
           </div>
+          <Pagination
+            count={Math.ceil(pagination.count / pageSize)}
+            onChange={handlePageChange}
+          />{' '}
         </div>
       </div>
     </div>
