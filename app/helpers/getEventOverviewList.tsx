@@ -1,23 +1,9 @@
-import {useGlobalContext} from "../context/store";
-
 export default function getEventOverviewList(
   events: [],
-  eventCreations: [
-    {
-      event_id: string;
-      venue_id: string;
-    }
-  ],
+  eventCreations: any[],
   venues: []
 ) {
-  let eventOverviewList: {
-    hostName: string;
-    dateOf: string;
-    timeOf: string;
-    venueName: string;
-    capacity: string;
-    address: string;
-  }[] = [];
+  let eventOverviewList: any = [];
 
   for (let i = 0; i < eventCreations.length; i++) {
     let event: any = events.filter(
