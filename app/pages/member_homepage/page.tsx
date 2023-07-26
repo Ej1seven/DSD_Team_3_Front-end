@@ -5,6 +5,7 @@ import EventList from "@/app/components/EventList";
 import Navbar from "@/app/components/Navbar";
 import Divider from "@mui/material/Divider";
 import {GlobalContextProvider} from "@/app/context/store";
+import UserEventList from "@/app/components/UserEventList";
 
 export default async function MemberHomepage() {
   const events: [] = await fetchEventData();
@@ -28,14 +29,10 @@ export default async function MemberHomepage() {
                   eventCreations={eventCreations}
                   venues={venues}
                 />
-                <div className="flex flex-col">
+                <div className="flex flex-col max-w-[350px]">
                   <Calender />
                   <Divider />
-                  <div className="rounded-md bg-[#14213D] w-full h-[700px] bg-opacity-10">
-                    <div className="text-black text-2xl ml-4 mt-4 font-bold">
-                      Your next events
-                    </div>
-                  </div>
+                  <UserEventList />
                 </div>
               </div>
             </div>
