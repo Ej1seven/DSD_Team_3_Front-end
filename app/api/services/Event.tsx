@@ -1,11 +1,11 @@
-import axios from 'axios';
-
-export const fetchEventData = async () => {
-  const { data } = await axios.get('http://localhost:4000/events');
+import axios from "axios";
+//retrieves data from the Event table
+export const fetchEventData = async (): Promise<[]> => {
+  const {data} = await axios.get("http://localhost:4000/events");
   return data;
 };
-
-export const fetchEventCreationData = async () => {
-  const { data } = await axios.get('http://localhost:4000/event_creation');
+//retrieves data from the Event_Creation table
+export const fetchEventCreationData = async (): Promise<[]> => {
+  const {data} = await axios.get("http://localhost:4000/event_creation");
   return data;
 };

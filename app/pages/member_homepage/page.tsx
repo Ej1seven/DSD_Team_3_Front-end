@@ -5,13 +5,11 @@ import EventList from "@/app/components/EventList";
 import Navbar from "@/app/components/Navbar";
 import Divider from "@mui/material/Divider";
 import {GlobalContextProvider} from "@/app/context/store";
-import {useState} from "react";
 
-export default async function MemberHomepage({params}: any) {
-  const events = await fetchEventData();
-  const eventCreations = await fetchEventCreationData();
-  const venues = await fetchVenueData();
-
+export default async function MemberHomepage() {
+  const events: [] = await fetchEventData();
+  const eventCreations: [] = await fetchEventCreationData();
+  const venues: [] = await fetchVenueData();
   return (
     <GlobalContextProvider>
       <div className="flex flex-col min-h-screen">

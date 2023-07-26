@@ -1,6 +1,4 @@
-import Image from 'next/image';
-
-import { FunctionComponent } from 'react';
+import {FunctionComponent} from "react";
 
 const LandingPage: FunctionComponent = () => {
   return (
@@ -51,7 +49,6 @@ const LandingPage: FunctionComponent = () => {
         </section>
         <section className="min-h-[225px] w-full  max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row mt-4">
           <div className="w-full md:w-1/2">
-            {' '}
             <div className="flex flex-col items-start justify-start text-left text-[24px] text-black font-lead-lead-1 mt-4 pr-4">
               <h3 className="md:m-0 relative text-[inherit] font-extrabold font-inherit mx-auto">{`Build a larger crowd with {{Company Name}}`}</h3>
               <p className="mt-4 relative text-[inherit] text-sm leading-7 px-4 md:px-0">
@@ -97,7 +94,6 @@ const LandingPage: FunctionComponent = () => {
                 </div>
               </div>
               <div className="flex-1">
-                {' '}
                 <h4 className="m-0 text-[inherit] font-bold font-inherit inline-block ">
                   Host
                 </h4>

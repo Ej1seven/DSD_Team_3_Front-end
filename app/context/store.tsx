@@ -29,7 +29,7 @@ const GlobalContext = createContext<ContextProps>({
   data: [],
   setData: (): DataType[] => [],
   eventOverviewData: [],
-  setEventOverviewData: (): DataType[] => [],
+  setEventOverviewData: (): [] => [],
   calendarDay: "",
   setCalendarDay: (): string => "",
 });
@@ -38,7 +38,7 @@ export const GlobalContextProvider = ({children}: any) => {
   const [userId, setUserId] = useState("");
   const [data, setData] = useState<[] | DataType[]>([]);
   const [eventOverviewData, setEventOverviewData] = useState<[]>([]);
-  const [calendarDay, setCalendarDay] = useState("");
+  const [calendarDay, setCalendarDay] = useState<string>("");
 
   return (
     <GlobalContext.Provider
