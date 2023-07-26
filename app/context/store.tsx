@@ -19,6 +19,8 @@ interface ContextProps {
   setData: Dispatch<SetStateAction<DataType[]>>;
   eventOverviewData: [];
   setEventOverviewData: Dispatch<SetStateAction<[]>>;
+  calendarDay: string;
+  setCalendarDay: Dispatch<SetStateAction<string>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -28,12 +30,15 @@ const GlobalContext = createContext<ContextProps>({
   setData: (): DataType[] => [],
   eventOverviewData: [],
   setEventOverviewData: (): DataType[] => [],
+  calendarDay: "",
+  setCalendarDay: (): string => "",
 });
 
 export const GlobalContextProvider = ({children}: any) => {
   const [userId, setUserId] = useState("");
   const [data, setData] = useState<[] | DataType[]>([]);
   const [eventOverviewData, setEventOverviewData] = useState<[]>([]);
+  const [calendarDay, setCalendarDay] = useState("");
 
   return (
     <GlobalContext.Provider
@@ -44,6 +49,8 @@ export const GlobalContextProvider = ({children}: any) => {
         setData,
         eventOverviewData,
         setEventOverviewData,
+        calendarDay,
+        setCalendarDay,
       }}
     >
       {children}
