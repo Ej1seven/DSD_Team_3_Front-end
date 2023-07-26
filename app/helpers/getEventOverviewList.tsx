@@ -1,20 +1,41 @@
 import {useGlobalContext} from "../context/store";
 
-export default async function getEventOverviewList(
-  events: any,
-  eventCreations: any,
-  venues: any
+export default function getEventOverviewList(
+  events: [],
+  eventCreations: [
+    {
+      event_id: string;
+      venue_id: string;
+    }
+  ],
+  venues: []
 ) {
-  let eventOverviewList: any = [];
+  let eventOverviewList: {
+    hostName: string;
+    dateOf: string;
+    timeOf: string;
+    venueName: string;
+    capacity: string;
+    address: string;
+  }[] = [];
 
   for (let i = 0; i < eventCreations.length; i++) {
-    let event = await events.filter(
-      (event: any) => event.event_id === eventCreations[i].event_id
+    let event: any = events.filter(
+      (event: {event_id: string}) =>
+        event.event_id === eventCreations[i].event_id
     );
-    let venue = await venues.filter(
-      (venue: any) => venue.venue_id === eventCreations[i].venue_id
+    let venue: any = venues.filter(
+      (venue: {venue_id: string}) =>
+        venue.venue_id === eventCreations[i].venue_id
     );
-    let eventOverview: any = {
+    let eventOverview: {
+      hostName: string;
+      dateOf: string;
+      timeOf: string;
+      venueName: string;
+      capacity: string;
+      address: string;
+    } = {
       hostName: "",
       dateOf: "",
       timeOf: "",
@@ -30,6 +51,5 @@ export default async function getEventOverviewList(
     eventOverview.address = venue[0].address;
     eventOverviewList.push(eventOverview);
   }
-  console.log();
   return eventOverviewList;
 }

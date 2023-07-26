@@ -1,97 +1,69 @@
 "use client";
-import axios from "axios";
-import Button, {ButtonProps} from "@mui/material/Button";
-import List from "@mui/material/List";
-import ListItem, {ListItemProps} from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
-import {styled} from "@mui/material/styles";
-import Paper, {PaperProps} from "@mui/material/Paper";
-import {fetchEventData} from "../api/services/Event";
 import format from "date-fns/format";
 import getEventOverviewList from "../helpers/getEventOverviewList";
 import {useEffect, useState} from "react";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
-import ComponentPagination from "../helpers/componentPagination";
 import Pagination from "@mui/material/Pagination";
 import {useGlobalContext} from "../context/store";
+import {
+  ColorButton,
+  EventDateContainer,
+  EventListItem,
+} from "./StyledComponents";
 
-const ColorButton = styled(Button)<ButtonProps>(({theme}) => ({
-  color: theme.palette.getContrastText("#14213D"),
-  backgroundColor: "#14213D !important",
-  "&:hover": {
-    backgroundColor: "#fff !important",
-    color: "#14213D !important",
-  },
-}));
+interface EventList {
+  events: [];
+  eventCreations: [];
+  venues: [];
+}
 
-const EventListItem = styled(ListItem)<ListItemProps>(({theme}) => ({
-  color: "#14213D !important",
-  borderRadius: "4px !important",
-  boxShadow:
-    "0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12); !important",
-  "&:hover": {
-    backgroundColor: "#fff !important",
-  },
-  marginBottom: "6px",
-  height: "130px",
-  width: "600px",
-}));
-
-const EventDateContainer = styled(Paper)<PaperProps>(({theme}) => ({
-  boxShadow:
-    "0px 3px 1px -2px rgba(252, 163, 17, 0.3), 0px 2px 2px 0px rgba(252, 163, 17, 0.24), 0px 1px 5px 0px rgba(252, 163, 17, 0.22); !important",
-}));
-
-const EventList = ({events, eventCreations, venues}: any) => {
+const EventList = ({events, eventCreations, venues}: EventList) => {
   const {setEventOverviewData, eventOverviewData, calendarDay} =
     useGlobalContext();
-  console.log(calendarDay);
-  const pageSize: any = 10;
-  const [pagination, setPagination] = useState({
+  const pageSize: number = 10;
+  const [pagination, setPagination] = useState<{
+    count: number;
+    from: number;
+    to: number;
+  }>({
     count: 0,
     from: 0,
     to: pageSize,
   });
-  const [eventOverview, setEventOverview] = useState([]);
-  const handlePageChange = (event: any, page: any) => {
+  const [eventOverview, setEventOverview] = useState<[]>([]);
+  const handlePageChange = (event: any, page: number) => {
     const from = (page - 1) * pageSize;
     const to = (page - 1) * pageSize + pageSize;
     setPagination({...pagination, from: from, to: to});
   };
   const service = {
-    getData: ({from, to}: any) => {
-      return new Promise(async (resolve, reject) => {
-        let filteredData: any = [];
-        filteredData = eventOverviewData.filter(
-          (dataItem: any) => new Date(dataItem.dateOf) >= new Date(calendarDay)
-        );
-        const data: any = filteredData.slice(from, to);
-        data.sort(function compare(a: any, b: any) {
-          var dateA: any = new Date(a.dateOf);
-          var dateB: any = new Date(b.dateOf);
-          return dateA - dateB;
-        });
-        console.log(data);
-
-        console.log(filteredData);
-        resolve({
-          count: filteredData.length,
-          data: data,
-        });
-      });
+    getData: ({from, to}: {from: number; to: number}) => {
+      return new Promise<{count: number; data: any}>(
+        async (resolve, reject) => {
+          let filteredData: [] | never[] = [];
+          filteredData = eventOverviewData.filter(
+            (dataItem: {dateOf: string}) =>
+              new Date(dataItem.dateOf) >= new Date(calendarDay)
+          );
+          const data: [] | never[] = filteredData.slice(from, to);
+          data.sort(function compare(a: {dateOf: string}, b: {dateOf: string}) {
+            let dateA: Date = new Date(a.dateOf);
+            let dateB: Date = new Date(b.dateOf);
+            return dateA.valueOf() - dateB.valueOf();
+          });
+          resolve({
+            count: filteredData.length,
+            data: data,
+          });
+        }
+      );
     },
   };
 
   useEffect(() => {
     service
       .getData({from: pagination.from, to: pagination.to})
-      .then((response: any) => {
-        console.log(response.count);
-        console.log(response.data);
+      .then((response: {count: number; data: any}) => {
         setPagination({...pagination, count: response.count});
 
         setEventOverview(response.data);
@@ -163,10 +135,12 @@ const EventList = ({events, eventCreations, venues}: any) => {
               );
             })}
           </div>
-          <Pagination
-            count={Math.ceil(pagination.count / pageSize)}
-            onChange={handlePageChange}
-          />{" "}
+          {pagination.count > 0 && (
+            <Pagination
+              count={Math.ceil(pagination.count / pageSize)}
+              onChange={handlePageChange}
+            />
+          )}{" "}
         </div>
       </div>
     </div>
