@@ -13,8 +13,15 @@ export default async function MemberHomepage() {
   const venues: [] = await fetchVenueData();
   return (
     <GlobalContextProvider>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen relative">
         <Navbar />
+        <div className="absolute w-[100%] h-[1704px] overflow-hidden">
+          <img
+            className="absolute h-[186.3%] top-[0%] bottom-[-86.3%] left-[-13%]  overflow-hidden max-h-full max-w-[150%] mx-auto"
+            alt=""
+            src="/group.svg"
+          />
+        </div>
         <div className="flex flex-col flex-grow">
           <div className="flex flex-col items-center flex-grow">
             <div className="px-6 sm:px-4 xl:px-0 xl:px-4 w-full mx-auto px-4 sm:px-24 lg:px-10 xl:px-10 mt-6 pb-14 md:max-w-screen-xl">
@@ -23,13 +30,13 @@ export default async function MemberHomepage() {
                   Erik Hunter
                 </h1>
               </div>
-              <div className="flex gl:flex-row text-primary mt-6 sm:mt-4 mb-10 justify-center max-w-[1000px] mx-auto">
+              <div className="flex gl:flex-row text-primary mt-6 sm:mt-4 mb-10 justify-center max-w-[1000px] mx-auto  bg-white z-10 rounded-md">
                 <EventList
                   events={events}
                   eventCreations={eventCreations}
                   venues={venues}
                 />
-                <div className="flex flex-col max-w-[350px]">
+                <div className="flex flex-col max-w-[350px]  bg-white z-10 rounded-md">
                   <Calender />
                   <Divider />
                   <UserEventList />

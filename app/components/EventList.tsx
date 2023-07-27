@@ -81,7 +81,7 @@ const EventList = ({events, eventCreations, venues}: EventList) => {
     })();
   }, []);
   return (
-    <div className="flex flex-col gl:flex-row gl:gap-10 flex-1">
+    <div className="flex flex-col gl:flex-row gl:gap-10 flex-1 bg-white z-10 rounded-md">
       <div className="">
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-3">
