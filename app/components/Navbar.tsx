@@ -31,7 +31,10 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center justify-between w-[125px] hidden lg:inline-flex">
+        <div className="flex items-center justify-between w-[250px] hidden lg:inline-flex">
+          <button className="hover:underline decoration-[#fca311] underline-offset-4 decoration-2 cursor-pointer [border:none] p-4 bg-[transparent]  text-sm 2xl:text-lg font-semibold font-poppins text-base-black text-left inline-block">
+            Host Event
+          </button>
           <div className=" bg-[#fca311] w-px h-[19px] w-[2px]" />
           <button className="hover:underline decoration-[#fca311] underline-offset-4 decoration-2 cursor-pointer [border:none] p-4 bg-[transparent]  text-sm 2xl:text-lg font-semibold font-poppins text-base-black text-left inline-block">
             Account
