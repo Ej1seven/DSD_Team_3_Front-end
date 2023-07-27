@@ -2,9 +2,9 @@ import {FunctionComponent} from "react";
 
 const LandingPage: FunctionComponent = () => {
   return (
-    <div className="relative bg-white w-full h-screen text-center text-xl text-base-black font-poppins no-scrollbar overflow-y-auto">
+    <div className="relative bg-white w-full h-screen text-center text-xl text-base-black font-poppins no-scrollbar overflow-y-auto md:overflow-y-hidden">
       <img
-        className="absolute bottom-[-10rem] left-[-10rem] max-w-[500px] lg:max-w-full md:min-w-[675.84px] max-h-[560px] lg:max-h-full md:min-h-[735.89px] object-cover h-screen"
+        className="absolute bottom-[-10rem] left-[-10rem] max-w-[500px] lg:max-w-full md:min-w-[675.84px] max-h-[560px] lg:max-h-full md:min-h-[735.89px] object-cover h-screen hidden md:block"
         alt=""
         src="/decore.svg"
       />
